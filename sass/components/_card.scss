@@ -1,0 +1,174 @@
+.card {
+  width: 35rem;
+  height: max-content;
+  @include absolute_center;
+  background-color: $color-white;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+  &__content-box {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+
+    &:hover {
+      background-color: rgba($color-gray-light-2, 0.2);
+    }
+
+    &::after {
+      content: "";
+      @include absolute_center(0.4);
+      opacity: 0;
+      z-index: -1;
+      width: 20rem;
+      height: 20rem;
+      border-radius: 50%;
+      background-color: rgba($color-gray-light-3, 0.2);
+      transition: all 0.2s ease-out;
+    }
+
+    &:active::after {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(3);
+    }
+
+    &--image {
+      height: 20rem;
+      width: 100%;
+      background-image: url("https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg");
+      background-size: cover;
+      display: inline-block;
+    }
+    &--heading {
+      padding: 2rem 1.4rem;
+
+      &--main {
+        font-size: 2rem;
+        font-weight: 500;
+      }
+
+      &--sub {
+        font-size: 1.6rem;
+        font-weight: 400;
+        margin-top: 0.6rem;
+        color: $color-gray-dark;
+      }
+    }
+    &--paragraph {
+      font-size: 1.4rem;
+      font-weight: 400;
+      padding: 0rem 1.4rem 0rem 1.4rem;
+      color: $color-gray-dark;
+      line-height: 2rem;
+      letter-spacing: 0.6px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  }
+
+  &__option {
+    padding: 1rem 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    & .card__buttons {
+      font-size: 1.4rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 1.8rem;
+      padding: 0rem 1rem 0rem 0rem;
+
+      &--read,
+      &--bookmark {
+        text-decoration: none;
+        color: $color-primary;
+        font-weight: 500;
+        padding: 0.8rem 1rem;
+        border-radius: 0.4rem;
+        position: relative;
+        text-align: center;
+        overflow: hidden;
+
+        & .btn-background {
+          @include absolute_center(0.5);
+          z-index: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba($color-secondary, 0.371);
+          opacity: 0;
+          transition: all 0.2s;
+          border-radius: 50%;
+        }
+
+        &:active {
+          & .btn-background {
+            opacity: 0.6;
+            transform: translate(-50%, -50%) scaleX(1.2) scaleY(2);
+          }
+        }
+
+        &:hover,
+        &:focus {
+          background: rgba(rgba($color-secondary, 0.371), 0.357);
+        }
+      }
+    }
+    & .card__icons {
+      font-size: 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 3rem;
+      padding: 1rem 2rem;
+
+      &--heart,
+      &--share,
+      &--options {
+        position: relative;
+        color: $color-gray-dark;
+
+        .icon-background {
+          @include absolute_center(0);
+          width: 3.4rem;
+          height: 3.4rem;
+          border-radius: 50%;
+          background-color: $color-gray-light-1;
+          z-index: -1;
+          transition: all 0.1s;
+        }
+        .icon-background-click {
+          @include absolute_center(0);
+          width: 3.4rem;
+          height: 3.4rem;
+          border-radius: 50%;
+          background-color: $color-gray-light-2;
+          z-index: -1;
+          opacity: 0;
+          transition: all 0.2s;
+        }
+        &:active {
+          color: $color-gray-dark;
+
+          .icon-background-click {
+            opacity: 0.8;
+            transform: translate(-50%, -50%) scale(1.4);
+          }
+        }
+
+        &:hover .icon-background,
+        &:focus .icon-background {
+          transform: translate(-50%, -50%) scale(1.4);
+        }
+      }
+    }
+  }
+}
