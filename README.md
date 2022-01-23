@@ -1,6 +1,6 @@
 # Neog Components Assignments
 
-## Card components
+## Card component
 
 ### Layout Option
 
