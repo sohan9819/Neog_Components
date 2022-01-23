@@ -1,0 +1,38 @@
+.snackbar {
+  position: absolute;
+  @include absolute_center;
+  background-color: $color-black;
+  width: max-content;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-white;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  box-shadow: 0.4rem 0.6rem 1.6rem rgba($color: $color-black, $alpha: 0.4);
+  font-family: $font-primary;
+  letter-spacing: 1px;
+
+  &__message {
+    font-size: 1.4rem;
+    margin: 0 1rem;
+  }
+
+  &__btn {
+    margin: 0 1rem;
+    font-size: 1.4rem;
+  }
+
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.8rem;
+    color: $color-white;
+
+    & .icon-link {
+      text-decoration: none;
+      color: $color-white;
+    }
+  }
+}
